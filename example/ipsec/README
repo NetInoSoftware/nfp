@@ -1,0 +1,12 @@
+This directory contains IPsec CLI configuration examples that can
+be used e.g. with the fpm or fpm_burstmode example applications.
+
+The examples create an IPsec tunnel between two VRF instances that
+are connected externally through two fast path ports. See the .cli
+files for details.
+
+The use of VRFs require num_vrf be set in NFP configuration. nfp.conf
+is an example configuration file for the fpm example application.
+
+Note that NFP must be built with --disable-sp configuration flag
+to enable IPsec.

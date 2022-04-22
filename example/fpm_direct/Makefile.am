@@ -1,0 +1,11 @@
+include $(top_srcdir)/example/Makefile.inc
+
+bin_PROGRAMS = nfp_fpm_direct
+nfp_fpm_direct_LDFLAGS = $(AM_LDFLAGS) -static
+
+dist_nfp_fpm_direct_SOURCES = app_main.c \
+			     ../common/linux_sigaction.c \
+			     ../common/cli_arg_parse.c
+
+noinst_HEADERS = ../common/linux_sigaction.h \
+		 ../common/cli_arg_parse.h
