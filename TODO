@@ -1,0 +1,8 @@
+== NetinoFastPath
+* Vectorized packet processing for TCP
+* Minimum memory footprint configuration
+* Update Jumbo frame support
+* DPDK in multi-instance scenarios
+* Study the benefits of replacing uma pools with shared memory (except for packets).
+* Configuration through web interface
+* TAP pktios for the slow path

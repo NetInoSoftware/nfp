@@ -1,0 +1,94 @@
+== NetinoFastPath (6.1.0)
+=== Backward compatible API changes
+==== DNS support
+* Add DNS resolver implementation
+* Add nfp_getaddrinfo()/nfp_getnameinfo() API
+* Add nfp_getservbyport()/nfp_getservbyname() API
+* Add CLI commands to resolve names and addresses
+
+==== OpenDataPlane support
+* Bump to ODP-DPDK v1.36.0
+
+==== Jumbo frame
+* Add global configuration of MTU.
+
+== NetinoFastPath (6.0.0)
+=== Backward incompatible API changes
+==== Interface API
+* The default number of RX/TX queues of an interface is changed
+from 1 to the number of cores. If not available, the number is
+dropped to largest available.
+
+=== Backward compatible API changes
+==== Vectorized packet processing
+* Add vectorized packet processing for ETH, IPv4, IPv6 and UDP.
+
+==== OpenDataPlane/DPDK support
+* Bump to ODP-DPDK v1.34.0.0 and DPDK 20.11
+
+==== Performance measurements
+* Update the performance measurements document with a complete set
+of measurements.
+
+== NetinoFastPath (5.2.0)
+=== Backward compatible API changes
+=== Interface API
+* Add DHCP IPv4 client support
+* Add nfp_getifaddrs()/nfp_freeifaddrs() APIs
+
+=== Socket API
+* Add nfp_getsockname()/nfp_getpeername() APIs
+
+== NetinoFastPath (5.1.0)
+=== Backward compatible API changes
+=== Socket API
+* Update 'select' API
+* Update 'epoll' API
+* Fix nfp_connect() functionality in blocking mode
+* Update nfp_send()/nfp_sendto()/nfp_recv()/nfp_recvfrom() APIs to
+increase compatibility with POSIX API.
+* Add nfp_sendmsg() and nfp_recvmsg() APIs
+
+=== Channel API
+* Add nfp_channel API for traffic termination.
+
+=== Examples
+* Add 'udp_term_socket' example for termination performance measurements.
+* Update 'classifier' example to support performance measurements.
+
+=== Performance measurements
+* Update the performance measurements document with the traffic
+termination results.
+
+== NetinoFastPath (5.0.0)
+=== Backward incompatible API changes
+==== Rebranding
+* Prefix for all APIs and files was change from 'ofp_' or 'OFP_' to
+'nfp_' or 'NFP_'
+
+=== Route
+* Update the route API
+* Add default route functionality
+
+=== Headers
+* Update headers for 'time' and 'select' operations.
+
+=== Backward compatible API changes
+=== OpenDataPlane
+* Bump to ODP-DPDK v1.32.0.0
+
+==== Multicast
+* Store multicast data structures in shared memory.
+
+=== Threads
+* Remove calls to deprecated ODP threads API.
+
+==== TCP
+* Fix memory leak on tcp debug log.
+
+==== CLI
+* Fix memory leak on CLI tree construction
+
+==== Documentation
+* Update NFP documentation
+* Add the performance results document
