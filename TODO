@@ -1,0 +1,6 @@
+== NetinoFastPath
+* DPDK in multi-instance scenarios
+* XDP pktio support
+* TAP pktios for the slow path
+* Configuration through web interface
+* Study the benefits of replacing uma pools with shared memory (except for packets).
