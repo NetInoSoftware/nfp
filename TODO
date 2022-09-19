@@ -1,0 +1,7 @@
+== NetinoFastPath
+* DHCPv6 support
+* NAT usecase
+* IKEv2 support
+* Configuration through web interface
+* Study the benefits of replacing uma pools with shared memory (except for packets).
+* Update NFP library generation method to include ODP symbols.
