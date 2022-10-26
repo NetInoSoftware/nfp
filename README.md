@@ -7,6 +7,12 @@ in diffent scenarios like small devices or multi-stack setups.
 
 It does not target the API or design compatibility with OpenFastPath project.
 
+Netino Fast Path (NFP) project web page:<br>
+    http://www.netinosoft.org
+
+NFP project in GitHub:<br>
+    https://github.com/NetInoSoftware/nfp
+
 Netino Fast Path general info
 ===============================================================================
 
@@ -25,7 +31,7 @@ through the ODP-DPDK layer.
 Termination of protocols with POSIX-like interface (socket) for legacy
 applications is also supported.
 
-See [project technical overview](http://www.openfastpath.org/index.php/service/technicaloverview/)
+See [project technical overview](http://openfastpath.org/index.php/services/technical-overview/)
 for more details about architecture and main features.
 
 
