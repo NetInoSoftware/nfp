@@ -1,0 +1,148 @@
+This directory contains VNF use-case configuration examples that can
+be used e.g. with the fpm example application.
+
+
+VNF use-case
+===============================================================================
+
+VNF use-case is summarized as the utilization of multiple NFP stack instances to
+perform multiple network functions on the same host at the same time.
+It is in many ways similar with heaving multiple VNFs running in VMs but with
+better performance and memory footprint.
+
+VNF characteristics
+-------------------------------------------------------------------------------
+The configuration files presented in this directory permit creation of two
+NFP VNFs with the following characteristics:
+ - 4 cores: 1 for control threads and 3 workers
+ - one (tap) interface for configuration and control
+ - one (or many) network interfaces for workload
+ - CLI via host stack or NFP stack
+
+ Each VNF runs on a distinct set of cores and interfaces.
+
+VNF configuration and startup
+-------------------------------------------------------------------------------
+
+ - Identify suitable network interfaces and configure them
+
+The supported interface types depend on selected ODP platform. Multiple
+pktio types may also be available for a specified NIC (e.g. socket and dpdk).
+Depending on selected pktio type, some configuration are needed before running
+any NFP application.
+
+e.g. for 'socket' pktio types, the interfaces must be isolated from OS stack:
+./scripts/nfp_linux_interface_acquire.sh <your interface>
+
+	./scripts/nfp_linux_interface_acquire.sh ens5f1
+	./scripts/nfp_linux_interface_acquire.sh ens5f0
+
+ - Apply NFP configuration and start the VNFs
+
+For VNF1:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf1.conf
+	./example/fpm/nfp_fpm -i tap:vnf1@10.10.10.2/24,ens5f1@192.168.100.10/24
+
+For VNF2:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf2.conf
+	./example/fpm/nfp_fpm -i tap:vnf2@20.20.20.2/24,ens5f0@192.168.200.10/24
+
+ - Configure the OS end of the configuration and control (tap) interfaces
+
+	ifconfig vnf1 10.10.10.1/24 up
+	ifconfig vnf2 20.20.20.1/24 up
+
+VNF validation
+-------------------------------------------------------------------------------
+From the host:
+ - ping vnfs
+	ping 10.10.10.2
+	ping 20.20.20.2
+ - telnet vnfs CLI via NFP stack
+	telnet 10.10.10.2 2345
+	telnet 20.20.20.2 2345
+ - telnet vnfs CLI via OS stack
+	telnet 127.0.0.1 2350
+	telnet 127.0.0.1 2360
+
+From VNF1:
+ - ping host
+	ping 10.10.10.1
+ - ping a remote host
+	ping 192.168.100.20
+
+From VNF2:
+ - ping host
+	ping 20.20.20.1
+ - ping a remote host
+	ping 192.168.200.20
+
+VNFs with DPDK interfaces
+-------------------------------------------------------------------------------
+The configuration steps for DPDK interfaces depend on ODP platform used.
+This section describes the configurations for odp-dpdk/linux-generic platform
+with DPDK support.
+
+- Identify suitable network interfaces and configure them
+
+Use dpdk scripts to identify the supported interfaces:
+	./dpdk/usertools/dpdk-devbind.py -s
+
+Configure a dpdk compatible driver for the selected interfaces:
+	./usertools/dpdk-devbind.py -u <bus:slot.func>
+	./usertools/dpdk-devbind.py --bind=<driver> <bus:slot.func>
+
+e.g.
+	./usertools/dpdk-devbind.py -u 0000:03:00.0
+	./usertools/dpdk-devbind.py --bind=uio_pci_generic 0000:03:00.0
+	./usertools/dpdk-devbind.py -u 0000:03:00.1
+	./usertools/dpdk-devbind.py --bind=uio_pci_generic 0000:03:00.1
+
+- Apply NFP configuration and start the VNFs
+
+For VNF1:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf1.conf
+	export ODP_PKTIO_DPDK_PARAMS="-a 0000:03:00.1"
+	./example/fpm/nfp_fpm -i tap:vnf1@10.10.10.2/24,0@192.168.100.10/24
+
+For VNF2:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf2.conf
+	export ODP_PKTIO_DPDK_PARAMS="-a 0000:03:00.0"
+	./example/fpm/nfp_fpm -i tap:vnf2@20.20.20.2/24,0@192.168.200.10/24
+
+- Configure the OS end of the configuration and control (tap) interfaces
+
+	ifconfig vnf1 10.10.10.1/24 up
+	ifconfig vnf2 20.20.20.1/24 up
+
+VNFs with XDP interfaces
+-------------------------------------------------------------------------------
+Availability of XDP support depends on Linux kernel version, the presence of
+XDP library on the host and the support in ODP platform.
+
+Assuming that all conditions are met, the configuration is similar with the
+configuration for 'socket' pktio.
+
+- Identify suitable network interfaces and configure them
+
+There is no need to 'acquire' interfaces via 'nfp_linux_interface_acquire.sh'
+script as for 'socket' pktio. However, if xdp library and tools are installed
+in non-standard locations, some additional settings are required:
+
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+	export LIBXDP_OBJECT_PATH=/usr/lib64/bpf
+
+ - Apply NFP configuration and start the VNFs
+
+For VNF1:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf1.conf
+	./example/fpm/nfp_fpm -i tap:vnf1@10.10.10.2/24,ens5f1@192.168.100.10/24
+
+For VNF2:
+	export NFP_CONF_FILE=<your NFP path>/example/vnf/nfp_flv_vnf2.conf
+	./example/fpm/nfp_fpm -i tap:vnf2@20.20.20.2/24,ens5f0@192.168.200.10/24
+
+ - Configure the OS end of the configuration and control (tap) interfaces
+
+	ifconfig vnf1 10.10.10.1/24 up
+	ifconfig vnf2 20.20.20.1/24 up

@@ -1,0 +1,144 @@
+Environment considerations
+===============================================================================
+
+Socket pktio
+=============
+Before running example applications with linux interfaces as socket pktios
+you need to block access for the other applications to those linux interfaces:
+
+# ./scripts/nfp_linux_interface_acquire.sh <interface_name>
+
+To restore access to a linux interface, call:
+
+# ./scripts/nfp_linux_interface_release.sh.sh <interface_name>
+
+Note: Super user rights are required to run those scripts.
+
+
+NFP Examples
+===============================================================================
+
+
+FPM
+-------------------------------------------------------------------------------
+fpm is a good starting point for application development.
+It includes basically everything needed to run an application.
+It uses ODP scheduler to retrieve the packets and events.
+
+
+FPM_DIRECT
+-------------------------------------------------------------------------------
+fpm_direct uses direct polling of NICs input queues to retrieve packets.
+It is targeting performance and is generally faster than 'fpm' example.
+
+FPM_POWER
+-------------------------------------------------------------------------------
+fpm_power targets power saving by sleeping workers when there is no
+packet coming for a long time. The workers are awakened through the use of
+RX interrupts.
+
+Requirements:
+- fpm_power requires a custom ODP-DPDK functionality provided as a patch within
+the example folder. The patch is to be applied on top of odp-dpdk repository at
+'v1.41.0.0_DPDK_22.11' tag and takes effect for 'linux-generic' platform,
+'dpdk' pktio.
+
+- fpm_power requires an nfp built with '--enable-power-example' configuration
+option. It enables the build of fpm_power example and additional
+functionalities.
+e.g.
+$ ./configure ..other options... --enable-power-example
+
+SOCKET
+-------------------------------------------------------------------------------
+Demonstrates the use of all socket operations available.
+
+
+udpecho
+-------------------------------------------------------------------------------
+udpecho demonstrates usage of zero-copy sockets API. Application receives
+data as odp packets, not as copied buffers. Application sends data back
+using two optional methods:
+1. standard socket interface, or
+2. reusing the same packet and sending it using a packet send function.
+
+
+udp_fwd_socket
+------------------------------------------------------------------------------
+UDP packets forwarding application with zero-copy sockets API is used for
+performance measurements.
+Application parameters configure the local ip, remote ip and the number of
+local sockets opened for forwarding.
+
+udp_term_socket
+------------------------------------------------------------------------------
+UDP packet termination application is used for performance measurement.
+Application parameters configure the local ip and port.
+
+
+webserver
+-------------------------------------------------------------------------------
+This is a simple web server that uses nfp sockets.
+
+To run the web server:
+# ./nfp_webserver -i <interface_name> -c <core_number> -r <www_dir>
+
+By default the webserver uses nfp_select to monitor the file descriptors. By
+using '-e' option the webserver can be set to use the nfp epoll
+implementation, e.g.:
+
+# ./nfp_webserver -i <interface_name> -c <core_number> -r <www_dir> -e
+
+
+webserver2
+-------------------------------------------------------------------------------
+This web server targets performance. It uses zero-copy socket API to access
+the TCP data.
+
+
+ioctl_test
+-------------------------------------------------------------------------------
+Examples how to use ioctl to control sockets, interfaces, and routes.
+
+classifier
+-------------------------------------------------------------------------------
+Classifies traffic and terminates certain packets on a different core.
+
+netwrap_proc
+netwrap_crt
+-------------------------------------------------------------------------------
+The two libraries exemplifies how to run native Linux application on top of
+NFP. Implementation is based on LD_PRELOAD.
+netwrap_proc - implements ODP/NFP configuration and startup of processing
+threads
+netwrap_crt - implements symbols overloading and arguments conversion between
+native calls and NFP calls. Current implementation overloads the following
+symbols: socket(), close(), shutdown(), bind(), accept(), accept4(), listen(),
+connect(), read(), write(), recv(), send(), getsockopt(), setsockopt(),
+writev(), sendfile64(), select(), epoll_create(), epoll_ctl(), epoll_wait(),
+ioctl() and fork().
+
+A script is provided in order to make utilization of this feature friendlier.
+Script's default configuration (see NFP_NETWRAP_ENV environment variable):
+ - Interface eth1 is used and 192.168.100.1 is configured.
+ - All cores (except for core 0) are used.
+ - CLI file ./scripts/nfp_netwrap.cli is used for additional settings
+
+Execution:
+ - Set the path to the shared libraries.
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<Your path>/nfp_ent/lib/.libs
+
+ - Set NFP netwrap configuration file
+# export NFP_CONF_FILE=<Your path>/nfp_ent/config/nfp_flv_netwrap_default.conf
+
+ - Set NFP execution parameters (interfaces, cores, cli file)
+# export NFP_NETWRAP_ENV="-i 0 -f <Your path>/nfp_ent/scripts/nfp_netwrap.cli"
+
+ - Run application
+# <Your path>/nfp_ent/scripts/nfp_netwrap.sh YOUR_NATIVE_APPLICATION
+
+Restrictions:
+ - Application needs to run as super user
+ - Slow path support is disabled for the interfaces.
+ - Specific socket configuration needs to be activated (use one of netwrap
+configuration file e.g. nfp_flv_netwrap_default.conf)

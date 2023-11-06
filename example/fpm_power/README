@@ -1,0 +1,18 @@
+FPM_POWER
+-------------------------------------------------------------------------------
+fpm_power targets power saving by sleeping workers when there is no
+packet coming for a long time. The workers are awakened through the use of
+RX interrupts.
+
+Requirements:
+
+- fpm_power requires a custom ODP-DPDK functionality provided as a patch within
+the example folder. The patch is to be applied on top of odp-dpdk repository at
+'v1.41.0.0_DPDK_22.11' tag and takes effect for 'linux-generic' platform,
+'dpdk' pktio.
+
+- fpm_power requires an nfp built with '--enable-power-example' configuration
+option. It enables the build of fpm_power example and additional
+functionalities.
+e.g.
+$ ./configure ..other options... --enable-power-example

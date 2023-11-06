@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>NetinoFastPath User Guide</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>NetinoFastPath User Guide</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_overview_of_nfp_features_and_supported_protocols">Overview of NFP features and supported protocols</a></li>
+<li><a href="#_quick_start_guide">Quick start guide</a>
+<ul class="sectlevel2">
+<li><a href="#_installing_odpnfp">Installing ODP/NFP</a></li>
+<li><a href="#_the_configuration_file">The Configuration File</a></li>
+<li><a href="#_starting_an_example_application">Starting an example application</a></li>
+<li><a href="#_using_nfp_cli">Using NFP CLI</a></li>
+<li><a href="#_starting_applications_with_nfp_netwrap">Starting applications with NFP netwrap</a></li>
+</ul>
+</li>
+<li><a href="#_overview_of_nfp_api">Overview of NFP API</a></li>
+<li><a href="#_designing_nfp_applications">Designing NFP applications</a>
+<ul class="sectlevel2">
+<li><a href="#_application_structure">Application structure</a></li>
+<li><a href="#_initialization_and_startup">Initialization and startup</a></li>
+<li><a href="#_synchronization_issues">Synchronization issues</a></li>
+<li><a href="#_packet_processing">Packet processing</a></li>
+<li><a href="#_timers">Timers</a></li>
+<li><a href="#_hooks">Hooks</a></li>
+</ul>
+</li>
+<li><a href="#_using_nfp_socket_interface">Using NFP socket interface</a></li>
+<li><a href="#_using_nfp_with_odp_dpdk">Using NFP with ODP-DPDK</a></li>
+<li><a href="#_using_nfp_in_virtualized_environments_and_containers">Using NFP in virtualized environments and containers</a></li>
+<li><a href="#_tools_for_performance_measurements">Tools for performance measurements</a></li>
+<li><a href="#_troubleshooting_hints">Troubleshooting hints</a>
+<ul class="sectlevel2">
+<li><a href="#_packet_monitoring">Packet monitoring</a></li>
+<li><a href="#_debug_logs">Debug logs</a></li>
+</ul>
+</li>
+<li><a href="#_known_restrictions">Known restrictions</a></li>
+<li><a href="#_references">References</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="#NetinoFastPath">[NetinoFastPath]</a> is a high performance user space TCP/IP stack built on top
+of <a href="#OpenDataPlane">[OpenDataPlane]</a> APIs. <a href="#NetinoFastPath">[NetinoFastPath]</a> project is a spin-off of the
+<a href="#OpenFastPath">[OpenFastPath]</a> open source project with which shares concepts and designs.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of this
+document is to provide basic guidelines for developers of NetinoFastPath (NFP)
+applications. Note that NFP repository on <a href="#GitHub">[GitHub]</a> contains a number of
+example applications in the "example" folder to check in parallel with reading
+this document.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_nfp_features_and_supported_protocols">Overview of NFP features and supported protocols</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetinoFastPath functionality is provided as a library to the applications that use
+OpenDataPlane (ODP) "run to completion" execution model and framework.</p>
+</div>
+<div class="paragraph">
+<p>Currently NFP can be used on top of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>linux-generic implementation of ODP</p>
+</li>
+<li>
+<p>DPDK-based platforms (ODP DPDK)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Support for other operating systems (like BSD) is planned in the future.</p>
+</div>
+<div class="paragraph">
+<p>NFP includes the following main features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TCP and UDP termination</p>
+</li>
+<li>
+<p>ICMP</p>
+</li>
+<li>
+<p>ARP/NDP</p>
+</li>
+<li>
+<p>IPv4 and IPv6 forwarding and routing</p>
+</li>
+<li>
+<p>IPv4 fragmentation and reassembly</p>
+</li>
+<li>
+<p>IPsec</p>
+</li>
+<li>
+<p>VRF for IPv4</p>
+</li>
+<li>
+<p>IGMP and multicast</p>
+</li>
+<li>
+<p>VLAN</p>
+</li>
+<li>
+<p>VXLAN and GRE tunneling</p>
+</li>
+<li>
+<p>DHCP IPv4/IPv6 client</p>
+</li>
+<li>
+<p>DNS</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Integration with OS networking stack (slowpath) is done through the TAP
+interfaces. Unsupported functionality is provided by the slowpath.</p>
+</div>
+<div class="paragraph">
+<p>NFP command line interface (CLI) provides following functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Packet capture and setting debug levels</p>
+</li>
+<li>
+<p>Showing statistics, ARP table, routes and interfaces</p>
+</li>
+<li>
+<p>Configuration of routes and interfaces with VRF support</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See NFP technical <a href="#overview">[overview]</a> for more details about NFP design and features.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quick_start_guide">Quick start guide</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter provides step-by-step instructions for installing NFP and running
+an example application. The instructions were verified with Ubuntu 20.04 LTS
+distribution of Linux OS; other distributions may require slightly different
+tools and commands.</p>
+</div>
+<div class="sect2">
+<h3 id="_installing_odpnfp">Installing ODP/NFP</h3>
+<div class="paragraph">
+<p>Ensure first that needed SW and testing tools are installed in your environment:</p>
+</div>
+<div class="paragraph">
+<p>The following packages (+ dependecies) are mandatory for building the
+NFP applications:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git autotools-dev libtool automake build-essential pkg-config</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following packages are optional:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>libssl-dev doxygen asciidoc valgrind libcunit1-dev libconfig-dev</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, the following packages may be needed (e.g. with DPDK):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>libnuma-dev libpcap-dev python</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ODP can be eiter built manually from the sources or built with devbuild script.</p>
+</div>
+<div class="paragraph">
+<p>Download and build ODP (manually):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/OpenDataPlane/odp-dpdk
+cd odp-dpdk
+git checkout v1.41.0.0_DPDK_22.11
+./bootstrap
+./configure --prefix=&lt;INSTALL ODP TO THIS DIR&gt; --enable-dpdk
+  --enable-dpdk-zero-copy --with-platform=linux-generic
+make install</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If DPDK was not installed in the default location, set the PKG_CONFIG_PATH:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>PKG_CONFIG_PATH=&lt;DPDK INSTALL DIR&gt;/lib64/pkgconfig ./configure
+  --prefix=&lt;INSTALL ODP TO THIS DIR&gt; --enable-dpdk
+  --enable-dpdk-zero-copy --with-platform=linux-generic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Download and build NFP applications (manually):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/NetInoSoftware/nfp
+cd nfp
+./bootstrap
+./configure --prefix=&lt;INSTALL NFP TO THIS DIR&gt; --with-odp=&lt;ODP INSTALLATION DIR&gt;
+make install</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check output of <code>./configure --help</code> command for available configuration
+options.</p>
+</div>
+<div class="paragraph">
+<p>Download and build NFP applications, odp-dpdk and dpdk (devbuild script):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/NetInoSoftware/nfp
+cd nfp
+./scripts/devbuild_all.sh</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>'scripts/devbuild_all/install' is the install folder of the build.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_configuration_file">The Configuration File</h3>
+<div class="paragraph">
+<p>Many NFP initialization parameters may be set using a configuration
+file. This feature utilizes the <a href="#libconfig">[libconfig]</a> library, which is LGPL
+licensed.</p>
+</div>
+<div class="paragraph">
+<p>See config/README file for a complete list of available parameters.</p>
+</div>
+<div class="paragraph">
+<p>See example configuration file (*.conf) from 'config' folder.</p>
+</div>
+<div class="paragraph">
+<p>The configuration file is enabled by setting NFP_CONF_FILE environment
+variable to point the configuration file.</p>
+</div>
+<div class="paragraph">
+<p>export NFP_CONF_FILE=&lt;full path&gt;/nfp/config/nfp_flv_default.conf</p>
+</div>
+<div class="paragraph">
+<p>Else, a default configuration file is checked and applied if found:
+$(sysconfdir)/nfp.conf, normally /usr/local/etc/nfp.conf</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting_an_example_application">Starting an example application</h3>
+<div class="paragraph">
+<p>This chapter will guide you through the steps needed for starting one of the
+example NFP applications. Simple webserver (located at example/webserver/
+directory) is used as an example.</p>
+</div>
+<div class="paragraph">
+<p>Choose which interface(s) in your system will be assigned for fastpath
+processing, e.g. ens5f1:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[nfp]# ip a
+...
+21: ens5f1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP
+   link/ether 80:61:5f:0c:d5:f5 brd ff:ff:ff:ff:ff:ff
+.....
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check how many processor cores are available:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>nproc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set IP address for the interface into ./example/webserver/nfp.cli
+file:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[nfp]# cat ./example/webserver/nfp.cli
+loglevel set error
+ifconfig fp0 192.168.100.10/24</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Select a web root directory. Default value is '/var/www'.</p>
+</div>
+<div class="paragraph">
+<p>Check usage and available options with command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>./example/webserver/nfp_webserver --help</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Start the application with command like:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>./example/webserver/nfp_webserver -i ens5f1 -c 4 -f ./example/webserver/nfp.cli -r /var/www</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the number of requested fastpath (worker) processing cores is 4. However
+not all the cores can be used for fastpath processing: first two are usually
+restricted. Application will start 2 working threads for processing incoming
+packets and 1 control thread.
+Below is an example of startup output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[nfp_ent]# example/webserver/nfp_webserver -i ens5f1 -c 4 -f ./example/webserver/nfp.cli -r /var/www
+RLIMIT_CORE: 0/-1
+Setting to max: 0
+HW time counter freq: 2494224682 hz
+
+System config:
+  system.thread_count_max: 256
+
+Pool config:
+  pool.local_cache_size: 256
+  pool.burst_size: 32
+  pool.pkt.max_num: 262143
+  pool.pkt.max_len: 65536
+  pool.pkt.base_align: 64
+  pool.buf.min_align: 64
+
+Queue config:
+  queue_basic.max_queue_size: 8192
+  queue_basic.default_queue_size: 4096
+
+Using scheduler 'basic'
+Scheduler config:
+  sched_basic.prio_spread: 4
+  sched_basic.prio_spread_weight: 63
+  sched_basic.load_balance: 1
+  sched_basic.burst_size_default[] =  32  32  32  32  32  16   8   4
+  sched_basic.burst_size_max[] =     255 255 255 255 255  16  16   8
+  sched_basic.group_enable.all: 1
+  sched_basic.group_enable.worker: 1
+  sched_basic.group_enable.control: 1
+  dynamic load balance: ON
+
+Packet IO config:
+  pktio.pktin_frame_offset: 0
+
+PKTIO: initialized loop interface.
+PKTIO: initialized dpdk pktio, use export ODP_PKTIO_DISABLE_DPDK=1 to disable.
+PKTIO: initialized pcap interface.
+PKTIO: initialized null interface.
+PKTIO: initialized socket mmap, use export ODP_PKTIO_DISABLE_SOCKET_MMAP=1 to disable.
+PKTIO: initialized socket mmsg, use export ODP_PKTIO_DISABLE_SOCKET_MMSG=1 to disable.
+EAL: Detected 12 lcore(s)
+EAL: Detected 1 NUMA nodes
+EAL: Auto-detected process type: PRIMARY
+EAL: Detected static linkage of DPDK
+EAL: Multi-process socket /var/run/dpdk/145339_/mp_socket
+EAL: Selected IOVA mode 'PA'
+EAL: No available hugepages reported in hugepages-1048576kB
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: No legacy callbacks, legacy socket not created
+
+DPDK version: DPDK 20.11.4-rc1
+I 20 9:3431398400 nfp_uma.c:43] Creating pool 'udp_inpcb', nitems=1024 size=1160 total=1187840
+I 21 9:3431398400 nfp_uma.c:43] Creating pool 'udp_inphd', nitems=1024 size=40 total=40960
+I 21 9:3431398400 nfp_uma.c:43] Creating pool 'tcp_inpcb', nitems=1024 size=1160 total=1187840
+I 21 9:3431398400 nfp_uma.c:43] Creating pool 'tcp_inphd', nitems=1024 size=40 total=40960
+I 21 9:3431398400 nfp_uma.c:43] Creating pool 'tcpcb', nitems=1024 size=784 total=802816
+I 22 9:3431398400 nfp_uma.c:43] Creating pool 'tcptw', nitems=1024 size=80 total=81920
+I 22 9:3431398400 nfp_uma.c:43] Creating pool 'syncache', nitems=240 size=168 total=40320
+I 22 9:3431398400 nfp_uma.c:43] Creating pool 'tcpreass', nitems=320 size=48 total=15360
+I 22 9:3431398400 nfp_uma.c:43] Creating pool 'sackhole', nitems=4096 size=40 total=163840
+I 22 9:3431398400 nfp_uma.c:43] Creating pool 'icmp_inpcb', nitems=8 size=1160 total=9280
+I 23 9:3431398400 nfp_ipsec.c:188] IPsec not supported with SP. Disabling IPsec.
+pktio/dpdk.c:1697:dpdk_open():Invalid DPDK interface name: ens5f1
+I 29 9:3431398400 nfp_ifnet.c:218] Device 'ens5f1' addr  80:61:5f:0c:d5:f5
+I 29 9:3431398400 nfp_ifnet.c:241] Device 'ens5f1' MTU=1500
+I 29 9:3431398400 nfp_init.c:655] Slow path threads on core 0
+I 30 0:2736768000 nfp_cli_thread.c:54] CLI server started on core 0
+
+
+ODP system info
+---------------
+ODP API version: 1.37.1
+CPU model:       Intel(R) Xeon(R) CPU E5-2678 v3
+CPU freq (hz):   2000000000
+Cache line size: 64
+Core count:      12
+
+Running ODP appl: "nfp_webserver"
+-----------------
+IF-count:        1
+Using IFs:       ens5f1
+
+Num worker threads: 4
+first CPU:          8
+cpu mask:           0xF00
+CLI: debug 0
+
+
+CLI: loglevel set debug
+
+
+CLI: ifconfig fp0 192.168.56.33/24
+
+I 31 9:3431398400 nfp_rt_mtrie_lookup.c:285] nfp_rt_rule_add inserted new rule vrf 0 prefix 192.168.56.33/32
+I 31 9:3431398400 nfp_rt_mtrie_lookup.c:285] nfp_rt_rule_add inserted new rule vrf 0 prefix 192.168.56.0/24
+
+I 33 0:2694804480 httpd.c:447] HTTP thread started
+I 133 0:2694804480 httpd.c:256] Using nfp_select</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the packets received by ens5f1 are captured by ODP and
+forwarded to the NFP application (fastpath).
+If no fastpath operations are applicable for some packets, they are forwarded
+to a 'sp0' TUN/TAP interface created by NFP (slowpath).</p>
+</div>
+<div class="paragraph">
+<p>By default webserver will listen port 2048 so you can verify its functionality
+e.g. with following command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -i -XGET http://192.168.56.33:2048/index.html</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use Ctrl+C in order to terminate the application.</p>
+</div>
+<div class="paragraph">
+<p>Note that NFP provides bash scripts to manage linux interface isolation: see
+nfp_linux_interface_acquire.sh and nfp_linux_interface_release.sh from
+'./scripts/' folder.</p>
+</div>
+<div class="paragraph">
+<p>See ./example/README file for more details on available example applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_nfp_cli">Using NFP CLI</h3>
+<div class="paragraph">
+<p>Telnet based Command line interface (CLI) can be used for configuring and
+debugging NFP. Basic CLI commands provide following functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>setting debug level</p>
+</li>
+<li>
+<p>capturing traffic and dumping it to the console or to a PCAP file</p>
+</li>
+<li>
+<p>showing and configuring ARP table</p>
+</li>
+<li>
+<p>showing and configuring interfaces and tunnels</p>
+</li>
+<li>
+<p>showing and configuring routes</p>
+</li>
+<li>
+<p>showing and clearing statistics</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>CLI thread may be started at NFP initialization time or by directly calling API
+nfp_cli_start_os_thread().</p>
+</div>
+<div class="paragraph">
+<p>CLI can be accessed with <code>telnet 127.0.0.1 2345</code> (or <code>telnet 0 2345</code> for short)
+command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[nfp]# telnet 127.0.0.1 2345
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+
+--==--==--==--==--==--==--
+-- WELCOME to NFP CLI --
+--==--==--==--==--==--==--
+
+ Type 'help' for information on available commands...
+
+&gt; help
+Use 'help' command to display information on CLI commands:
+  help &lt;command&gt;
+    command: alias, address, arp, debug, exit, ifconfig, ipsec, loglevel, netstat, ping, ps, route, show, shutdown, stat, sysctl
+
+Commands summary:
+-----------------
+alias    : configures command aliasses
+address  : configures additional IPv4 addresses on an interface
+arp      : configures ARP entries
+debug    : configures packet capture and printing options
+dns      : displays status of the dns component
+exit     : closes the CLI connection
+ifconfig : configures interfaces
+ipsec    : configures IPsec SA and SP
+loglevel : configures log level
+netstat  : prints network connections
+ping     : pings IPv4/IPv6 addresses
+ps       : prints information on running threads/processes
+route    : configures routes
+show     : displays status of NFP components (e.g arp, root)
+shutdown : shutdown NFP
+stat     : prints statistics
+sysctl   : configures system parameters
+
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, current IP configuration can be shown with <code>ifconfig</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&gt; ifconfig
+fp0	(12) (enp1s0f0) slowpath fwd: on (sp0)
+	Link encap:Ethernet	HWaddr:  80:61:5f:0c:d5:f4
+	inet addr:192.168.100.10	Bcast:192.168.100.255	Mask:255.255.255.0
+	inet6 addr: fe80:0000:0000:0000:8261:5fff:fe0c:d5f4 Scope:Link
+	MTU: 1500
+	RX: bytes:0 packets:0 dropped:0 errors:0
+	TX: bytes:55256 packets:177 dropped:0 error:0
+
+ ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>CLI commands can also be read from a file and executed during application
+startup.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting_applications_with_nfp_netwrap">Starting applications with NFP netwrap</h3>
+<div class="paragraph">
+<p>Some native Linux applications which use TCP/IP socket API can be run as such
+on top of NFP. This requires that the applications include netwrap_proc and
+netwrap_crt libraries into LD_PRELOAD list. netwrap_proc library
+implements ODP/NFP configuration and startup of processing threads whereas
+netwrap_crt implements symbol overloading and argument conversion for the
+following native calls: socket(), close(), shutdown(), bind(), accept(),
+accept4(), listen(), connect(), read(), write(), recv(), send(), getsockopt(),
+setsockopt(), writev(), sendfile64(), select(), ioctl() and fork().</p>
+</div>
+<div class="paragraph">
+<p>A script (./scripts/nfp_netwrap.sh) is provided in order to make utilization of
+this feature more friendly.</p>
+</div>
+<div class="paragraph">
+<p>Note that utilizing NFP netwrap has some restrictions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>application needs to run as superuser</p>
+</li>
+<li>
+<p>slow path support is disabled on all interfaces</p>
+</li>
+<li>
+<p>specific socket configuration needs to be activated. Use
+./config/nfp_flv_netwrap_default.conf configuration file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the following example we start a native application on top of NFP:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Update load library path
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:&lt;nfp_path&gt;/nfp/lib/x86/shared:&lt;nfp_path&gt;/nfp/lib/.libs</p>
+</li>
+<li>
+<p>Set NFP initialization parameters</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>export NFP_NETWRAP_ENV="-i enp1s0f0@192.168.100.10/24"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set NFP configuration</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>export NFP_CONF_FILE=&lt;nfp_path&gt;/nfp/config/nfp_flv_netwrap_default.conf</p>
+</div>
+<div class="paragraph">
+<p>Now, the application can be started:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[nfp_ent]# ./scripts/nfp_netwrap.sh &lt;app_path&gt;/application
+HW time counter freq: 2494224745 hz
+
+System config:
+  system.thread_count_max: 256
+
+Pool config:
+  pool.local_cache_size: 256
+  pool.burst_size: 32
+  pool.pkt.max_num: 262143
+  pool.pkt.max_len: 65536
+  pool.pkt.base_align: 64
+  pool.buf.min_align: 64
+
+Queue config:
+  queue_basic.max_queue_size: 8192
+  queue_basic.default_queue_size: 4096
+
+Using scheduler 'basic'
+Scheduler config:
+  sched_basic.prio_spread: 4
+  sched_basic.prio_spread_weight: 63
+  sched_basic.load_balance: 1
+  sched_basic.burst_size_default[] =  32  32  32  32  32  16   8   4
+  sched_basic.burst_size_max[] =     255 255 255 255 255  16  16   8
+  sched_basic.group_enable.all: 1
+  sched_basic.group_enable.worker: 1
+  sched_basic.group_enable.control: 1
+  dynamic load balance: ON
+
+Packet IO config:
+  pktio.pktin_frame_offset: 0
+
+PKTIO: initialized loop interface.
+PKTIO: initialized dpdk pktio, use export ODP_PKTIO_DISABLE_DPDK=1 to disable.
+PKTIO: initialized pcap interface.
+PKTIO: initialized null interface.
+PKTIO: initialized socket mmap, use export ODP_PKTIO_DISABLE_SOCKET_MMAP=1 to disable.
+PKTIO: initialized socket mmsg, use export ODP_PKTIO_DISABLE_SOCKET_MMSG=1 to disable.
+EAL: Detected 12 lcore(s)
+EAL: Detected 1 NUMA nodes
+EAL: Auto-detected process type: PRIMARY
+EAL: Detected static linkage of DPDK
+EAL: Multi-process socket /var/run/dpdk/130184_/mp_socket
+EAL: Selected IOVA mode 'PA'
+EAL: No available hugepages reported in hugepages-1048576kB
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: Probe PCI driver: net_ixgbe (8086:10fb) device: 0000:03:00.0 (socket 0)
+EAL: Probe PCI driver: net_ixgbe (8086:10fb) device: 0000:03:00.1 (socket 0)
+EAL: No legacy callbacks, legacy socket not created
+
+DPDK version: DPDK 20.11.4-rc1
+I 69 3:1810664448 nfp_uma.c:43] Creating pool 'udp_inpcb', nitems=1024 size=1160 total=1187840
+I 70 3:1810664448 nfp_uma.c:43] Creating pool 'udp_inphd', nitems=1024 size=40 total=40960
+I 70 3:1810664448 nfp_uma.c:43] Creating pool 'tcp_inpcb', nitems=1024 size=1160 total=1187840
+I 70 3:1810664448 nfp_uma.c:43] Creating pool 'tcp_inphd', nitems=1024 size=40 total=40960
+I 70 3:1810664448 nfp_uma.c:43] Creating pool 'tcpcb', nitems=1024 size=784 total=802816
+I 70 3:1810664448 nfp_uma.c:43] Creating pool 'tcptw', nitems=1024 size=80 total=81920
+I 71 3:1810664448 nfp_uma.c:43] Creating pool 'syncache', nitems=240 size=168 total=40320
+I 71 3:1810664448 nfp_uma.c:43] Creating pool 'tcpreass', nitems=320 size=48 total=15360
+I 71 3:1810664448 nfp_uma.c:43] Creating pool 'sackhole', nitems=4096 size=40 total=163840
+I 71 3:1810664448 nfp_uma.c:43] Creating pool 'icmp_inpcb', nitems=8 size=1160 total=9280
+I 36 1:3353287680 nfp_ifnet.c:219] Device 'enp1s0f0' addr  80:61:5f:0c:d5:f4
+I 36 1:3353287680 nfp_ifnet.c:241] Device 'enp1s0f0' MTU=1500
+
+ODP system info
+---------------
+ODP API version: 1.37.1
+CPU model:       Intel(R) Xeon(R) CPU E5-2678 v3
+CPU freq (hz):   1200000000
+Cache line size: 64
+Core count:      12
+
+Running ODP appl: "nfp_netwrap"
+-----------------
+IF-count:        1
+Using IFs:       enp1s0f0
+
+Num worker threads: 10
+first CPU:          2
+cpu mask:           0xFFC
+I 90 3:1810664448 nfp_rt_mtrie_lookup.c:285] nfp_rt_rule_add inserted new rule vrf 0 prefix 192.168.100.10/32
+I 90 3:1810664448 nfp_rt_mtrie_lookup.c:285] nfp_rt_rule_add inserted new rule vrf 0 prefix 192.168.100.0/24
+I 92 0:1002431488 nfp_cli_thread.c:54] CLI server started on core 0
+
+I 190 3:1810664448 app_main.c:206] End Netwrap processing constructor()</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview_of_nfp_api">Overview of NFP API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NFP public API header files can be found in ./include/api/ folder at the
+<a href="#GitHub">[GitHub]</a> project repository.</p>
+</div>
+<div class="paragraph">
+<p>NFP provides APIs for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>initialisation and termination of NFP (nfp_init.h)</p>
+</li>
+<li>
+<p>creating, configuration and deleting interfaces (nfp_ifnet_portconf.h)</p>
+</li>
+<li>
+<p>handling routing and ARP tables (nfp_route_arp.h)</p>
+</li>
+<li>
+<p>packet Ingress and Egress processing (nfp_pkt_processing.h)</p>
+</li>
+<li>
+<p>hooks for IP local, IP forwarding and GRE (nfp_hook.h)</p>
+</li>
+<li>
+<p>NFP socket API (nfp_socket.h)</p>
+</li>
+<li>
+<p>timer callbacks (nfp_timer.h)</p>
+</li>
+<li>
+<p>packet and performance statistics (nfp_stat.h)</p>
+</li>
+<li>
+<p>debugging and packet capture (nfp_debug.h)</p>
+</li>
+<li>
+<p>logging (nfp_log.h)</p>
+</li>
+<li>
+<p>customizing CLI commands (nfp_api_cli.h)</p>
+</li>
+<li>
+<p>handling Management Information Base entries (nfp_sysctl.h)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, API folder contains a number of protocol specific header files
+containing data structures, macros and constants for accessing and manipulating
+packet headers and data.</p>
+</div>
+<div class="paragraph">
+<p>At UDP and TCP level, NFP uses an optimized callback based zero-copy socket API
+which enables the usage of the complete packet, including metadata, in user
+space. This is done without copy operations typically used by the traditional
+BSD sockets. Termination of protocols with BSD socket interface for legacy
+applications is also supported.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_designing_nfp_applications">Designing NFP applications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_application_structure">Application structure</h3>
+<div class="paragraph">
+<p>In an NFP application, one instance of NFP runs across all the assigned data
+plane cores.</p>
+</div>
+<div class="paragraph">
+<p>On the cores allocated to fastpath processing, ODP starts only one thread or
+process (workers) where the event/packet dispatcher, NFP and the user
+application code runs.</p>
+</div>
+<div class="paragraph">
+<p>The dispatcher functions can be configure per core.</p>
+</div>
+<div class="paragraph">
+<p>If legacy BSD socket APIs are used, they need to run on a separate core or cores
+(on control threads) in order to not interfere with the NFP fastpath processing.</p>
+</div>
+<div class="sect3">
+<h4 id="_packet_input_modes">Packet input modes</h4>
+<div class="paragraph">
+<p>Incoming packets can be received by an NFP application either directly or via
+scheduled receive queues.</p>
+</div>
+<div class="sect4">
+<h5 id="_direct_mode">Direct mode</h5>
+<div class="paragraph">
+<p>Direct mode is designed to support poll-based packet processing. In direct mode,
+received packets are stored by ODP into one or more packet IO queues and can be
+retrieved by worker threads with odp_pktin_recv() call. Note that applications
+cannot perform enqueues to these queues. Packets can be transmitted to the
+packet IO by calling odp_pktout_send().</p>
+</div>
+<div class="paragraph">
+<p>Optional RSS hashing functionality can be enabled for distributing packets to
+different input queues.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_scheduled_mode">Scheduled mode</h5>
+<div class="paragraph">
+<p>Scheduled mode integrates RX packet processing with the ODP event model. In case
+of scheduled mode incoming packets are distributed by ODP scheduler to multiple
+scheduled queues which have associated scheduling attributes like priority,
+scheduler group and synchronization mode (parallel, atomic, ordered).
+Information about scheduled packets is then provided to requesting threads as
+events.</p>
+</div>
+<div class="paragraph">
+<p>Worker threads of an NFP application can then use either default or their own
+event dispatchers for consuming incoming events with odp_schedule() or
+odp_schedule_multi() function call and processing them further.</p>
+</div>
+<div class="paragraph">
+<p>See ODP <a href="#Users-Guide">[Users-Guide]</a> for more details about packet input/output modes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initialization_and_startup">Initialization and startup</h3>
+<div class="sect3">
+<h4 id="_initializing_odp">Initializing ODP</h4>
+<div class="paragraph">
+<p>ODP Initialization can be done either explicit by the application or
+implicit by NFP initialization rutine.</p>
+</div>
+<div class="paragraph">
+<p>On explicit initialization, the first ODP API that must be called by an ODP/NFP
+application is odp_init_global(). Calling odp_init_global() establishes the
+ODP API framework and should be called only once per application. Following the
+global initialization, each thread in turn calls odp_init_local(). This
+establishes the local ODP thread context for that thread.
+The created ODP instance is then passed as argument to nfp_initialize().</p>
+</div>
+<div class="paragraph">
+<p>The implict initialization takes place when NFP_ODP_INSTANCE_INVALID value is
+passed as argument to nfp_initialize(). NFP will creat and manage the ODP
+instance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_initializing_nfp">Initializing NFP</h4>
+<div class="paragraph">
+<p>The first NFP API that must be called by an ODP/NFP application is
+nfp_initialize_param(). It initializes the NFP initialization
+parameter to the default values. The structure contains such global
+parameters as interface count, interface names, packet processing hooks, packet
+input mode etc. These parameters can, if necessary, be updated by the
+application before passing them to the next function to be called,
+nfp_initialize().</p>
+</div>
+<div class="paragraph">
+<p>Shutdown is the logical reverse of the initialization procedure when
+nfp_terminate() function is called by respective threads in order to free
+ODP/NFP resources properly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assigning_processor_cores">Assigning processor cores</h4>
+<div class="paragraph">
+<p>NFP application is responsible for mapping processor cores to its worker
+threads. Number of available cores can be checked with odp_cpu_count() call. By
+default core 0 (and core 1 in some ODP versions) is used for operating system
+background tasks (this value is a part of NFP initialization parameter structure)
+so it is recommended to start mapping from core 1 (or 2). odp_cpumask_* functions
+of ODP API can be used for initialization of the CPU mask. Configured CPU mask
+can be later given as a parameter to nfp_thread_create() or nfp_process_fork_n()
+functions which will create and start worker threads or processes on the
+assigned cores.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#ODP_API">[ODP_API]</a> for more information about ODP API and helper functions.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, nfp_get_default_worker_cpumask() may be used to get the
+default worker distribution CPU mask, starting from the number of requested
+workers and number of cores available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_allocating_packet_io_interfaces">Allocating packet IO interfaces</h4>
+<div class="paragraph">
+<p>nfp_initialize() function creates respective packet IO instances for all the
+interfaces included into NFP initialization parameter structure. Some of the
+properties, such as packet input and output modes, of the packet IO instances
+can be configured through the global initialization parameters passed to
+nfp_initialize().</p>
+</div>
+<div class="paragraph">
+<p>If an NFP application needs packet IO configuration that is not possible through
+nfp_initialize() (e.g. enabling multiple input or output queues per interface),
+it must create respective packet IO instances after NFP initialization through
+the nfp_ifport_net_create() API. This will require the following steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>initialize the default network interface parameters by calling
+nfp_ifport_net_param_init() routine</p>
+</li>
+<li>
+<p>set non-default values for the parameters</p>
+</li>
+<li>
+<p>call nfp_ifport_net_create() function for each interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the following code sample will set the
+non-default parameters and create packet IO objects:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/** create_interfaces_direct_rss() Create NFP interfaces with
+  * pktios open in direct mode, thread unsafe and using RSS with
+  * hashing by IPv4 addresses and TCP ports
+  *
+  * @param if_count int  Interface count
+  * @param if_names char** Interface names
+  * @param tx_queue int Number of requested transmission queues
+  *    per interface
+  * @param rx_queue int Number of requested receiver queues per
+  *    interface
+  * @return int 0 on success, -1 on error
+  *
+  */
+ static int create_interfaces_direct_rss(int if_count, char **if_names,
+         int tx_queues, int rx_queues)
+ {
+         nfp_ifport_net_param_t if_param;
+         odp_pktio_param_t pktio_param;
+         odp_pktin_queue_param_t pktin_param;
+         odp_pktout_queue_param_t pktout_param;
+         int i;
+
+         nfp_ifport_net_param_init(&amp;if_param);
+         if_param.pktio_param = &amp;pktio_param;
+         if_param.pktin_param = &amp;pktin_param;
+         if_param.pktout_param = &amp;pktout_param;
+         if_param.if_sp_mgmt = 1;
+
+         odp_pktio_param_init(&amp;pktio_param);
+         pktio_param.in_mode = ODP_PKTIN_MODE_DIRECT;
+         pktio_param.out_mode = ODP_PKTOUT_MODE_DIRECT;
+
+         odp_pktin_queue_param_init(&amp;pktin_param);
+         pktin_param.op_mode = ODP_PKTIO_OP_MT_UNSAFE;
+         pktin_param.hash_enable = 1;
+         pktin_param.hash_proto.proto.ipv4_tcp = 1;
+         pktin_param.num_queues = rx_queues;
+
+         odp_pktout_queue_param_init(&amp;pktout_param);
+         Pktout_param.op_mode = ODP_PKTIO_OP_MT_UNSAFE;
+         pktout_param.num_queues = tx_queues;
+
+         for (i = 0; i &lt; if_count; i++)
+                 if (nfp_ifport_net_create(if_names[i],
+                                 &amp;if_param,
+                                 NULL, NULL) &lt; 0) {
+                         NFP_ERR("Failed to init interface %s",
+                                 if_names[i]);
+                         return -1;
+                 }
+
+         return 0;
+ }</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rss_and_multiqueue_support">RSS and multiqueue support</h4>
+<div class="paragraph">
+<p>Many NICs provide multiple transmit and receive queues, allowing packets
+received by the NIC to be assigned to one of its receive queues. Maximum number
+of input/output queues available in used NICs can be checked with ODP function
+odp_pktio_capability(). Desired number of input/output queues can then be
+provided as part of odp_pktin_queue_param_t and odp_pktout_queue_param_t
+parameter structures to nfp_ifport_net_create() function (see the example in the
+previous chapter).</p>
+</div>
+<div class="paragraph">
+<p>More than one input queue require input hashing or classifier setup. In the
+previous example input hashing is enabled and hash type is set to ipv4_tcp
+meaning that used NIC should compute hash values over the following header
+fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>source IPv4 address</p>
+</li>
+<li>
+<p>destination IPv4 address</p>
+</li>
+<li>
+<p>source TCP Port</p>
+</li>
+<li>
+<p>destination TCP Port</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As a consequence, packets coming from the same TCP flow will be directed to the
+same input queue.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_starting_worker_and_control_threads">Starting worker and control threads</h4>
+<div class="paragraph">
+<p>NFP application can use nfp_thread_create() for creating worker and control
+threads/processes. The function takes four input arguments: thread table,
+number of threads to start, CPU mask and NFP thread parameter. CPU mask is used
+for setting CPU affinity for the created threads/processes and can be initialized
+e.g. with nfp_get_default_worker_cpumask() call. NFP thread parameter should be
+populated with following thread specific parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>thread entry point function (e.g. event dispatcher)</p>
+</li>
+<li>
+<p>optional argument for the thread entry point function</p>
+</li>
+<li>
+<p>ODP thread type (ODP_THREAD_WORKER or ODP_THREAD_CONTROL)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Created threads can be joined with nfp_thread_join() function.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_defaultuser_event_dispatcher">Default/user event dispatcher</h4>
+<div class="paragraph">
+<p>NFP library provides a default event dispatcher function (int
+default_event_dispatcher(void *arg)) which can be run by worker threads of an
+NFP applications on each dedicated processor core. This function provides basic
+event handling functionality for packet receiving, timer expiration, buffer
+freeing and crypto API completion events. It can be provided as a parameter when
+creating worker threads/processes with nfp_thread_create() function.
+Default event dispatcher function takes one parameter which is a function to be
+used for processing incoming packets (e.g. nfp_eth_vlan_processing() implemented
+by NFP library).
+NFP 6.0 adds a multi-packet API aware default event dispatcher (int
+default_event_dispatcher_multi(void *arg)) that takes as parameter a multi
+packet processing function (e.g. nfp_eth_vlan_processing_multi()).</p>
+</div>
+<div class="paragraph">
+<p>An NFP application can also implement its own event dispatchers for worker
+threads. Custom event dispatchers can use e.g. odp_pktin_recv() (in case
+of direct mode) and odp_schedule()/odp_schedule_multi() (in case of scheduled
+mode) functions so as other ODP/NFP features for retrieving and handling
+incoming packets and events.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_starting_cli_thread">Starting CLI thread</h4>
+<div class="paragraph">
+<p>When dispatcher threads are running, further application logic can be
+launched. In order to enable NFP CLI, a dedicated CLI thread should be started on
+the management core (not competing for CPU cycles with the worker threads) by
+calling nfp_cli_start_os_thread() function. In addition to the CLI threads,
+the nfp_cli_process_file() function can be used to process CLI commands.
+It takes as argument a text file (named in examples as nfp.cli) that contains
+NFP CLI commands which will be executed in the context of the caller&#8217;s thread.</p>
+</div>
+<div class="paragraph">
+<p>Below is an example of NFP CLI file (from example/webserver/nfp.cli):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>debug 0
+loglevel set debug
+ifconfig fp0 192.168.56.33/24</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>nfp_cli_add_command() function can be used by an NFP application in order to add
+customized CLI commands. nfp_cli_stop_os_thread() function is used for
+termination of the CLI thread.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_synchronization_issues">Synchronization issues</h3>
+<div class="paragraph">
+<p>ODP scheduler provides event synchronization services that simplify application
+programming in a parallel processing environment.</p>
+</div>
+<div class="paragraph">
+<p>ODP synchronization mode determines how the scheduler handles processing of
+multiple events originating from the same queue.</p>
+</div>
+<div class="paragraph">
+<p>In ODP_SCHED_SYNC_NONE mode different events from parallel queues can be
+scheduled simultaneously to different worker threads. In this case application
+is responsible for possibly needed synchronization during event handling.</p>
+</div>
+<div class="paragraph">
+<p>In ODP_SCHED_SYNC_ATOMIC mode only a single worker thread receives events from a
+given queue at a time. Events scheduled from atomic queues thus can be processed
+lock free because the locking is being done implicitly by the scheduler.</p>
+</div>
+<div class="paragraph">
+<p>In ODP_SCHED_SYNC_ORDERED mode the scheduler dispatches multiple events from the
+queue in parallel to different threads, however the scheduler also ensures that
+the relative sequence of these events on output queues is identical to their
+sequence from their originating ordered queue.</p>
+</div>
+<div class="paragraph">
+<p>See ODP <a href="#Users-Guide">[Users-Guide]</a> for more details about queue synchronization modes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_packet_processing">Packet processing</h3>
+<div class="paragraph">
+<p>The packet processing is handled in NFP through a series of self-contained
+processing functions which means that traffic can be inserted at various places
+in the packet processing flow.</p>
+</div>
+<div class="paragraph">
+<p>NFP applications can use packet processing functions from nfp_pkt_processing.h
+API for handling packets received by worker threads from Ethernet interfaces and
+Linux kernel. The packet processing component also provides API for sending
+packets.</p>
+</div>
+<div class="paragraph">
+<p>See NFP technical <a href="#overview">[overview]</a> for ingress/egress packet processing diagrams.</p>
+</div>
+<div class="paragraph">
+<p>Overall packet processing performance can be further improved by taking into use
+available hardware acceleration functions for packet validation, checksum
+calculation, cryptographic transformations as well as optimized memory/buffers
+operations. Such HW acceleration capabilities are platform specific and can be
+configured, if available, with respective ODP API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timers">Timers</h3>
+<div class="paragraph">
+<p>NFP applications can uses functions from nfp_timer.h API in order to
+start/cancel ODP timers so as handle ODP timer events. Applications can also
+register timeout callback functions that will be posted on the specified CPU
+timer queue.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hooks">Hooks</h3>
+<div class="paragraph">
+<p>NFP applications can implement and register its own functions for processing
+specific received packets or specific packets to be sent by NFP. Below is the
+list of available hook handles from include/api/nfp_hook.h:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>enum nfp_hook_id {
+        NFP_HOOK_LOCAL = 0,     /**&lt; Registers a function to handle all packets
+                                        with processing at IP level */
+        NFP_HOOK_LOCAL_IPv4,    /**&lt; Registers a function to handle all packets
+                                        with processing at IPv4 level */
+        NFP_HOOK_LOCAL_IPv6,    /**&lt; Registers a function to handle all packets
+                                        with processing at IPv6 level */
+        NFP_HOOK_LOCAL_UDPv4,   /**&lt; Registers a function to handle all packets
+                                        with processing at UDP IPv4 level */
+        NFP_HOOK_LOCAL_UDPv6,   /**&lt; Registers a function to handle all packets
+                                        with processing at UDP IPv6 level */
+        NFP_HOOK_FWD_IPv4,      /**&lt; Registers a function to handle all IPv4
+                                        packets that require forwarding */
+        NFP_HOOK_FWD_IPv6,      /**&lt; Registers a function to handle all IPv6
+                                        packets that require forwarding */
+        NFP_HOOK_GRE,           /**&lt; Registers a function to handle GRE tunnels
+                                        not registered to NFP */
+        NFP_HOOK_OUT_IPv4,      /**&lt; Registers a function to handle all IPv4
+                                        packets to be sent by NFP*/
+        NFP_HOOK_OUT_IPv6,      /**&lt; Registers a function to handle all IPv6
+                                        packets to be sent by NFP*/
+        NFP_HOOK_MAX
+};</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hook registration is done during application startup by providing pkt_hook table
+to nfp_initialize() function. Some example applications (e.g. fpm) contain an
+example of hook registration.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_nfp_socket_interface">Using NFP socket interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At UDP and TCP level, NFP library implements an optimized zero-copy socket API
+which enables usage of the complete packet, including metadata, in user space.
+NFP applications can implement and register its own callback functions for
+reading on sockets and handling TCP accept events.</p>
+</div>
+<div class="paragraph">
+<p>Also legacy BSD socket interface is supported.</p>
+</div>
+<div class="paragraph">
+<p>NFP socket API is described in include/api/nfp_socket.h.</p>
+</div>
+<div class="paragraph">
+<p>Some NFP example applications (e.g. udpecho, webserver2, tcpperf) contain
+examples of NFP socket API usage.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_nfp_with_odp_dpdk">Using NFP with ODP-DPDK</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DPDK is supported by NFP through the ODP-DPDK implementation of ODP. NFP
+repository contains a script (scripts/devbuild_all.sh) for building NFP
+on top of ODP-DPDK.</p>
+</div>
+<div class="paragraph">
+<p>The script will download and build compatible versions of DPDK, ODP and NFP.</p>
+</div>
+<div class="paragraph">
+<p>Before launching NFP applications the following things should be
+checked/adjusted in DPDK-based setups:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Check current hugepage settings:</p>
+<div class="literalblock">
+<div class="content">
+<pre>cat /proc/meminfo | grep HugePages</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Adjust total number of hugepages if needed:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sysctl -w vm.nr_hugepages=2048</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Insert the preferred kernel module (if needed):</p>
+<div class="literalblock">
+<div class="content">
+<pre>For igb_uio:
+/sbin/modprobe uio
+ulimit -Sn 2048
+insmod &lt;dpdk path&gt;/kmod/igb_uio.ko</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>For uio_pci_generic:
+modprobe uio_pci_generic</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check the current status of network interfaces:</p>
+<div class="literalblock">
+<div class="content">
+<pre>dpdk/usertools/dpdk-devbind.py -s</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Unbind desired interface(s) from using any other driver and bind it to
+the preferred driver (e.g. igb_uio or uio_pci_generic):</p>
+<div class="literalblock">
+<div class="content">
+<pre>ifconfig &lt;IF name&gt; down
+dpdk/usertools/dpdk-devbind.py -u &lt;domain:bus:slot.func&gt;
+dpdk/usertools/dpdk-devbind.py --bind=uio_pci_generic &lt;domain:bus:slot.func&gt;</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that you cannot use original names (e.g. eth0, eth1 etc.) for the
+interfaces controlled by DPDK; those interfaces can be referenced as '0', '1'
+etc. instead.</p>
+</div>
+<div class="paragraph">
+<p>Now, the application can be started:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>./example/fpm/nfp_fpm -i 0,1 -c 4 -f ./nfp.cli</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check <a href="#DPDK">[DPDK]</a> documentation for more DPDK related information.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_nfp_in_virtualized_environments_and_containers">Using NFP in virtualized environments and containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to baremetal environment, NFP applications can be run in virtual
+machines and docker containers. Some things should be taken into account in such
+cases.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Multiqueuing is disabled by default in virtio interfaces. For example, in
+OpenStack based clouds the following thing should be done in order to enable
+multiqueuing in virtual machines:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>hw_vif_multiqueue_enabled property should be set to "yes" when creating glance
+images</p>
+</li>
+<li>
+<p>hw:vif_number_queues property should be set to desired value for used nova
+flavors</p>
+</li>
+<li>
+<p>inside virtual machines combined number of tx/rx queues should be set with the
+following command:</p>
+<div class="literalblock">
+<div class="content">
+<pre>ethtool -L &lt;interface name&gt; combined &lt;number of queues&gt;</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Some additional parameters should be provided when starting containers with
+NFP applications in order to enable needed memory and network features:</p>
+<div class="literalblock">
+<div class="content">
+<pre>docker run -it --ulimit memlock=8192000000:8192000000 --cap-add=NET_ADMIN --device=/dev/net/tun nfp</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After starting a container needed networks can be created and connected to it,
+e.g.:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>docker network create --driver bridge nfp_net
+docker network connect nfp_net &lt;container ID&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that offloading of generic IP rx/tx checksum calculation is usually
+enabled by default for both physical and virtual network interfaces. This may
+result in a situation when TCP packets sent from one container or virtual
+machine to another (inside the same physical server) will not contain valid
+checksum and NFP will drop them. One possible workaround to this is to disable
+tx checksumming for the sending interface/bridge with <code>ethtool -K &lt;interface
+name&gt; tx off</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tools_for_performance_measurements">Tools for performance measurements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A wide variety of HW/SW tools exist for measuring performance of different
+layers of network stacks. Below are just few examples of free SW tools suitable
+for benchmarking NFP applications.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#wrk">[wrk]</a> HTTP benchmarking tool can be used with webserver like applications.</p>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/wg/wrk.git
+cd wrk
+make
+./wrk --threads 4 --connections 8 --duration 10s --timeout 1 --latency http://11.0.0.22:2048/index.html</pre>
+</div>
+</div>
+</li>
+<li>
+<p>tcpperf is a iperf-like NFP test application which can be used for TCP
+benchmarking, see <code>tcpperf --help</code> for more details.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshooting_hints">Troubleshooting hints</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_packet_monitoring">Packet monitoring</h3>
+<div class="paragraph">
+<p>Incoming/outgoing packets can be monitored using <code>debug</code> command of CLI. For
+example, in order to print all the packets into a text file (packets.txt), give
+following command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>debug 0xf</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An example of the output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># cat /root/nfp/packets.txt
+
+ *************
+ [2] NIC to FP: 379.445
+  08:00:27:78:c5:75 -&gt; 08:00:27:24:a9:26
+   IP len=60 TCP 10.10.10.101:52263 -&gt; 10.10.10.102:2048
+    seq=0xdd899b05 ack=0x0 off=10
+    flags=S win=29200 sum=0x40 urp=0
+
+ *************
+ [2] FP to NIC: 379.446
+  08:00:27:24:a9:26 -&gt; 08:00:27:78:c5:75
+   IP len=60 TCP 10.10.10.102:2048 -&gt; 10.10.10.101:52263
+    seq=0x6e2ff56f ack=0xdd899b06 off=10
+    flags=SA win=65535 sum=0xe660 urp=0
+
+ *************
+ [2] NIC to FP: 379.446
+  08:00:27:78:c5:75 -&gt; 08:00:27:24:a9:26
+   IP len=52 TCP 10.10.10.101:52263 -&gt; 10.10.10.102:2048
+    seq=0xdd899b06 ack=0x6e2ff570 off=8
+    flags=A win=229 sum=0x1445 urp=0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check <code>debug help</code> output for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debug_logs">Debug logs</h3>
+<div class="paragraph">
+<p>By default, only "info", "warning" and "error" log messages can be displayed.
+In order to enable the "debug" level logs, a version of NFP library compiled
+with --enable-debug option is needed.</p>
+</div>
+<div class="paragraph">
+<p>Log level can be selected with API or from CLI:
+e.g. in nfp.cli file:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>loglevel set debug</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_known_restrictions">Known restrictions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Socket based packet IO doesn&#8217;t currently support multiqueuing which means that
+only one input/output queue can be used in DIRECT_RSS mode with linux-generic
+implementation of ODP. There is no such restriction when using DPDK or netmap
+based packet IO.</p>
+</div>
+<div class="paragraph">
+<p>RSS hashing is not currently supported by virtio interfaces. As a result, it is
+not possible to ensure that e.g. packets from the same TCP flow will be always
+received by the same worker thread/process.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>[<a id="NetinoFastPath"></a>] NetinoFastPath project homepage
+<a href="http://netinosoft.org" class="bare">http://netinosoft.org</a></p>
+</li>
+<li>
+<p>[<a id="GitHub"></a>] NetinoFastPath in GitHub
+<a href="https://github.com/NetInoSoftware/nfp/" class="bare">https://github.com/NetInoSoftware/nfp/</a></p>
+</li>
+<li>
+<p>[<a id="OpenFastPath"></a>] OpenFastPath project homepage
+<a href="http://www.openfastpath.org/" class="bare">http://www.openfastpath.org/</a></p>
+</li>
+<li>
+<p>[<a id="OpenDataPlane"></a>] OpenDataPlane project homepage
+<a href="https://www.opendataplane.org/" class="bare">https://www.opendataplane.org/</a></p>
+</li>
+<li>
+<p>[<a id="overview"></a>] OpenFastPath technical overview
+<a href="http://www.openfastpath.org/index.php/service/technicaloverview/" class="bare">http://www.openfastpath.org/index.php/service/technicaloverview/</a></p>
+</li>
+<li>
+<p>[<a id="Users-Guide"></a>] ODP Users-Guide
+<a href="https://docs.opendataplane.org/snapshots/odp-publish/generic/usr_html/master/latest/linux-generic/output/users-guide.html" class="bare">https://docs.opendataplane.org/snapshots/odp-publish/generic/usr_html/master/latest/linux-generic/output/users-guide.html</a></p>
+</li>
+<li>
+<p>[<a id="ODP_API"></a>] OpenDataPlane API documentation
+<a href="https://www.opendataplane.org/api-documentation/" class="bare">https://www.opendataplane.org/api-documentation/</a></p>
+</li>
+<li>
+<p>[<a id="DPDK"></a>] DPDK documentation
+<a href="http://dpdk.org/doc/guides/index.html" class="bare">http://dpdk.org/doc/guides/index.html</a></p>
+</li>
+<li>
+<p>[<a id="wrk"></a>] HTTP benchmarking tool
+<a href="https://github.com/wg/wrk" class="bare">https://github.com/wg/wrk</a></p>
+</li>
+<li>
+<p>[<a id="libconfig"></a>] libconfig – C/C++ Configuration File Library
+<a href="http://www.hyperrealm.com/libconfig/libconfig.html" class="bare">http://www.hyperrealm.com/libconfig/libconfig.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-10-27 16:14:03 +0200
+</div>
+</div>
+</body>
+</html>
