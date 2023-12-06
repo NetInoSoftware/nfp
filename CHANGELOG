@@ -1,0 +1,194 @@
+== NetinoFastPath (8.1.0)
+=== Backward compatible API changes
+==== IPv6
+* Add support for multiple IPv6 addresses per interface
+
+==== DPDK
+* Bump to DPDK 22.11.3
+
+==== Multi-architecture
+* Validate support for aarch64 (arm64) architecture
+
+== NetinoFastPath (8.0.0)
+=== Backward compatible API changes
+==== DHCP
+* Add DHCP6 client implementation.
+
+==== NDP
+* Reimplement NDP support.
+
+==== CLI
+* Update ping/ping6 commands to support domain names.
+
+==== Examples
+* Add fpm 'power' example that targets a reduce power consumption.
+
+==== OpenDataPlane support
+* Bump to ODP-DPDK v1.41.0
+
+== NetinoFastPath (7.2.0)
+=== Backward compatible API changes
+==== IPv6
+* Add hardware csum support for UDP and TCP.
+
+==== Slow Path
+* Add alternative 'slow path' support implementation that uses
+ODP TAP pktios instead of NFP TAP interfaces. This implementation
+removes the need for additional threads for packet polling.
+It is disabled by default (as not all platforms support TAP pktios)
+but can be enabled at build time.
+* Fix slow path support for TCP.
+
+==== Interface management
+* Fix resources cleanup on interface creation error.
+
+== NetinoFastPath (7.1.0)
+=== Backward compatible API changes
+==== ODP support
+* Disable the unused ODP features for the default ODP instance.
+
+==== VNF (multi-instance) model
+* Add VNF configuration files
+* Add VNF configuration description for 'socket', 'DPDK' and 'XDP'
+pktios
+
+==== Performance numbers
+* Update performance numbers
+* Add performance numbers for single TCP connection use-case.
+* Add performance numbers for XDP pktio (IP forward use-case).
+
+== NetinoFastPath (7.0.0)
+=== Backward incompatible API changes
+==== Network interface API
+* Update network interface configuration API (nfp_ifport_net_create()) to
+make it easier to extend.
+* Add per interface MTU configuration.
+* Rename 'local' interfaces as 'loopback' interfaces in API:
+nfp_ifport_local_ipv4_up() was renamed as nfp_ifport_loopback_ipv4_up().
+
+==== NFP configuration file
+* Overall update on configuration file structure: some options were
+regrouped or rearranged (see ./config/README).
+* Add master switch to independently enable/disable functionalities:
+dns, dhcp, channel, ipsec, vlan, vxlan, gre, loopback and cli can be
+independently enabled/disabled at start time.
+
+=== Backward compatible API changes
+==== Reduced memory footprint configuration
+* Configuration file ./config/nfp_flv_memory_footprint.conf was designed
+to permit initialization of an NFP application with a reduce memory
+footprint: some features were disabled while memory utilization was reduced
+for others (e.g. maximum 2 UDP sockets and 3 TCP sockets, one epoll() etc.).
+While footprint can be further reduced depending on individual usecase, the
+values obtained with this configuration file are:
+- shared memory: 0.6 MB with radix routing or 5 MB with mtrie routing
+- memory in pools (except packet pool): 0.2 MB
+- memory in packet pool: 8.9 MB
+
+==== OpenDataPlane support
+* Bump to ODP-DPDK v1.37.1
+
+==== CLI update
+* CLI 'stat' command prints a reduce set of statistics while 'stat all'
+prints detailed statistics.
+
+==== Bug fixes
+* Fix epoll initialization error.
+* Update epoll to reduce search time.
+* Fix 'sorele' panic when calling nfp_close() twice.
+* Fix buffer pool allocation on reduced pool sizes.
+
+== NetinoFastPath (6.1.0)
+=== Backward compatible API changes
+==== DNS support
+* Add DNS resolver implementation
+* Add nfp_getaddrinfo()/nfp_getnameinfo() API
+* Add nfp_getservbyport()/nfp_getservbyname() API
+* Add CLI commands to resolve names and addresses
+
+==== OpenDataPlane support
+* Bump to ODP-DPDK v1.36.0
+
+==== Jumbo frame
+* Add global configuration of MTU.
+
+== NetinoFastPath (6.0.0)
+=== Backward incompatible API changes
+==== Interface API
+* The default number of RX/TX queues of an interface is changed
+from 1 to the number of cores. If not available, the number is
+dropped to largest available.
+
+=== Backward compatible API changes
+==== Vectorized packet processing
+* Add vectorized packet processing for ETH, IPv4, IPv6 and UDP.
+
+==== OpenDataPlane/DPDK support
+* Bump to ODP-DPDK v1.34.0.0 and DPDK 20.11
+
+==== Performance measurements
+* Update the performance measurements document with a complete set
+of measurements.
+
+== NetinoFastPath (5.2.0)
+=== Backward compatible API changes
+=== Interface API
+* Add DHCP IPv4 client support
+* Add nfp_getifaddrs()/nfp_freeifaddrs() APIs
+
+=== Socket API
+* Add nfp_getsockname()/nfp_getpeername() APIs
+
+== NetinoFastPath (5.1.0)
+=== Backward compatible API changes
+=== Socket API
+* Update 'select' API
+* Update 'epoll' API
+* Fix nfp_connect() functionality in blocking mode
+* Update nfp_send()/nfp_sendto()/nfp_recv()/nfp_recvfrom() APIs to
+increase compatibility with POSIX API.
+* Add nfp_sendmsg() and nfp_recvmsg() APIs
+
+=== Channel API
+* Add nfp_channel API for traffic termination.
+
+=== Examples
+* Add 'udp_term_socket' example for termination performance measurements.
+* Update 'classifier' example to support performance measurements.
+
+=== Performance measurements
+* Update the performance measurements document with the traffic
+termination results.
+
+== NetinoFastPath (5.0.0)
+=== Backward incompatible API changes
+==== Rebranding
+* Prefix for all APIs and files was change from 'ofp_' or 'OFP_' to
+'nfp_' or 'NFP_'
+
+=== Route
+* Update the route API
+* Add default route functionality
+
+=== Headers
+* Update headers for 'time' and 'select' operations.
+
+=== Backward compatible API changes
+=== OpenDataPlane
+* Bump to ODP-DPDK v1.32.0.0
+
+==== Multicast
+* Store multicast data structures in shared memory.
+
+=== Threads
+* Remove calls to deprecated ODP threads API.
+
+==== TCP
+* Fix memory leak on tcp debug log.
+
+==== CLI
+* Fix memory leak on CLI tree construction
+
+==== Documentation
+* Update NFP documentation
+* Add the performance results document

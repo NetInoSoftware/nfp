@@ -1,0 +1,7 @@
+== NetinoFastPath
+* Cleanup interface list implementation
+* Configuration through web interface
+* NAT usecase
+* IKEv2 support
+* Study the benefits of replacing uma pools with shared memory (except for packets).
+* Update NFP library generation method to include ODP symbols.
